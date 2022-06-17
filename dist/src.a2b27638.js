@@ -200,10 +200,15 @@ document.getElementById("remove-comments").addEventListener('click', RemoveAllCo
 
 function AddUnsortList() {
   var ul = document.getElementsByTagName("ul")[0];
-  var textare = document.getElementsByTagName("textarea")[0]; //ul.innerHTML += '<li>' +textare.value +' </li>';       
+  var textare = document.getElementsByTagName("textarea")[0]; //alert(textare.value);
+  //ul.innerHTML += '<li>' +textare.value +' </li>';       
 
-  var li = document.createElement("li");
-  li.appendChild(document.createTextNode(textare.value));
+  var li = document.createElement("li"); //li.appendChild(document.createTextNode(textare.value));
+
+  var e = document.getElementsByTagName("select")[0];
+  var selText = e.options[e.selectedIndex].text; ///document.getElementsByClassName("comment-rating")[0].textContent = strUser;  
+
+  li.appendChild(document.cre("<div class='comment'><div class='comment-rating'></div>" + selText + "<div class='comment-text'></div> " + textare.value + "<div class='editor-mode' style='visibility: hidden'><button class='remove-comment' id='remove-comment'>Submit rates</button></div></div>"));
   ul.appendChild(li);
 }
 
@@ -245,7 +250,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65441" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52246" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

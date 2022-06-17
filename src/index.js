@@ -15,9 +15,12 @@ document.getElementById("remove-comments").addEventListener('click', RemoveAllCo
 
 function AddUnsortList() 
 {  
-  const ul = document.getElementsByTagName("UL")[0];
+  const ul = document.getElementsByTagName("ul")[0];
   const textare = document.getElementsByTagName("textarea")[0];                   
-  ul.innerHTML += '<li>' +textare.value +' </li>';        
+  //ul.innerHTML += '<li>' +textare.value +' </li>';       
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(textare.value));
+  ul.appendChild(li);
 };
 
 function RemoveAllComments() 

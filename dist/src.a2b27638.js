@@ -199,9 +199,12 @@ document.getElementById("add-comment").addEventListener('click', AddUnsortList);
 document.getElementById("remove-comments").addEventListener('click', RemoveAllComments);
 
 function AddUnsortList() {
-  var ul = document.getElementsByTagName("UL")[0];
-  var textare = document.getElementsByTagName("textarea")[0];
-  ul.innerHTML += '<li>' + textare.value + ' </li>';
+  var ul = document.getElementsByTagName("ul")[0];
+  var textare = document.getElementsByTagName("textarea")[0]; //ul.innerHTML += '<li>' +textare.value +' </li>';       
+
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(textare.value));
+  ul.appendChild(li);
 }
 
 ;
